@@ -19,5 +19,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>weather-api-key</key>
+	<string>5c137103d4cc44f4ffe795af8d6f6d6e</string>
+	<key>prefer-swiftui</key>
+	<false/>
+	<key>is-devt</key>
+	<true/>
 </dict>
 </plist>

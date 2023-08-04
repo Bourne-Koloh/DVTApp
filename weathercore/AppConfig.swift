@@ -9,7 +9,7 @@
 import Foundation
 
 
-public class AppConfig:NSObject{
+public class AppConfig:NSObject,Decodable{
     
     fileprivate static let DEFAULT_USER_STORE_KEY = "app-cache"
     
@@ -48,9 +48,50 @@ public class AppConfig:NSObject{
     
     override init(){
         super.init()
+        
+        //
+        do {
+            //
+            if let url = Bundle.main.url(forResource: "info", withExtension: "plist") {
+                //
+                let data = try Data(contentsOf: url)
+                //
+                var config = try PropertyListDecoder().decode(AppConfig.self, from: data)
+                
+                //
+                AppConfig._config = config
+            }
+        }catch{
+            AppConfig._config = nil
+            LogUtils.Log(from:self,with:"Load Config Error :: \(error)")
+        }
+        
     }
     
     //
-    public var useSwiftUI:Bool = false
+    public var preferSwiftUI:Bool = false
     public var isDevt:Bool = true
+    public var weatherKey:String? = nil
+    
+    
+    
+    //
+    enum CodingKeys : String, CodingKey {
+        case preferSwiftUI = "prefer-swiftui"
+        case isDevt = "is-devt"
+        case weatherKey = "weather-api-key"
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let val = try? container.decodeIfPresent(Bool.self, forKey: .preferSwiftUI) {
+            preferSwiftUI = val
+        }
+        if let val = try? container.decodeIfPresent(Bool.self, forKey: .isDevt){
+            isDevt = val
+        }
+        if let val = try? container.decodeIfPresent(String.self, forKey: .weatherKey){
+            weatherKey = val
+        }
+    }
 }

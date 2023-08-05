@@ -19,7 +19,9 @@ public class AppConfig:NSObject,Decodable{
         get {
             if _config == nil {
                 //Init...
-                _config = AppConfig()
+                _ = AppConfig()
+                //Will use default values of Info.plist properties are not read,
+                //_config = AppConfig()
             }
             
             return _config!
@@ -52,17 +54,17 @@ public class AppConfig:NSObject,Decodable{
         //
         do {
             //
-            if let url = Bundle.main.url(forResource: "info", withExtension: "plist") {
+            if let url = Bundle.main.url(forResource: "Info", withExtension: "plist") {
                 //
                 let data = try Data(contentsOf: url)
                 //
-                var config = try PropertyListDecoder().decode(AppConfig.self, from: data)
+                AppConfig._config = try PropertyListDecoder().decode(AppConfig.self, from: data)
                 
-                //
-                AppConfig._config = config
+            }else{
+                
+                LogUtils.Log(from:self,with:"Load Config Error :: Info.plist not found")
             }
         }catch{
-            AppConfig._config = nil
             LogUtils.Log(from:self,with:"Load Config Error :: \(error)")
         }
         

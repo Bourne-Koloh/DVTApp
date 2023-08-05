@@ -10,7 +10,7 @@ import CoreData
 
 public class DataStoreImpl:NSObject,IDataStore{
     
-    static var _inst:DataStoreImpl?
+    private static var _inst:DataStoreImpl?
     
     static var Shared:IDataStore{
         
@@ -23,6 +23,7 @@ public class DataStoreImpl:NSObject,IDataStore{
             return _inst!
         }
     }
+    
     
 
     private var inMemory = false
@@ -86,7 +87,6 @@ public class DataStoreImpl:NSObject,IDataStore{
         return newbackgroundContext
     }()
     
-    private let WeatherTable = "weather"
     
     public func dispose() {
         //
@@ -102,5 +102,147 @@ public class DataStoreImpl:NSObject,IDataStore{
         }
     }
     
+    public func loadForecastItems() -> [ForecastItem]{
+        var list = [ForecastItem]()
+         //
+        let fetchRequest = NSFetchRequest<ForecastEntity>(entityName:CoreDataConstants.FORECAST_TABLE_NAME)
+         
+         //3
+         do {
+             let records = try backgroundContext.fetch(fetchRequest)
+             
+             let decoder = JSONDecoder()
+             
+            for (i,r0) in records.enumerated() {
+                 
+                let item = ForecastItem()
+                 //
+                item.cod = r0.cod
+                item.id = r0.id > 0 ? r0.id : UInt64(i)
+                item.dt = r0.timestamp
+                item.message = r0.message
+                item.count = r0.count
+                 //
+                item.city = try? decoder.decode(ForecastCity.self, from: r0.city.data(using: .utf8)!)
+                 //
+                item.entries = try! decoder.decode([WeatherItem].self, from: r0.entries.data(using: .utf8)!)
+                 
+                 //
+                 list.append(item)
+             }
+             
+         } catch let error as NSError {
+           LogUtils.Log(from: self,with: "Could not fetch forecast records. \(error), \(error.userInfo)")
+         }
+        return list
+    }
+    //
+    public func addForecastItem(with item :ForecastItem) -> Bool{
+        //
+        let fetchRequest = NSFetchRequest<ForecastEntity>(entityName: CoreDataConstants.FORECAST_TABLE_NAME)
+        
+        //Account
+        var predicates = [NSPredicate]()
+        let accPredicate = NSPredicate(format: "\(#keyPath(ForecastEntity.cod)) = %@", item.cod)
+        predicates.append(accPredicate)
+        //
+        
+        //Combine Rules..
+        fetchRequest.predicate = NSCompoundPredicate(type: .and, subpredicates: predicates)
+        //
+        do {
+            //Get matching entries ..
+            let matches = try backgroundContext.fetch(fetchRequest)
+            
+            var entity:ForecastEntity?
+            
+            //Drop them..
+            if matches.count > 0{
+                //
+                entity = matches[0]
+                //
+                if(matches.count > 1){
+                    //Clear Records..
+                    let deleteRequest = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: CoreDataConstants.FORECAST_TABLE_NAME))
+                    //
+                    try backgroundContext.execute(deleteRequest)
+                    try backgroundContext.save()
+                    //
+                }
+            }else{
+                // 2 Create a new entry
+                entity = ForecastEntity(context: backgroundContext)
+            }
+            
+            // 3
+            entity?.id = item.id
+            entity?.cod = item.cod
+            //
+            entity?.timestamp = Date()
+            //
+            entity?.message = item.message
+            
+            let encoder = JSONEncoder()
+            
+            if let json  = try? encoder.encode(item.city){
+                entity?.city =  String(data: json, encoding: .utf8)!
+            }
+            
+            if let json  = try? encoder.encode(item.entries) {
+                entity?.entries = String(data: json, encoding: .utf8)!
+            }
+            
+        } catch {
+            return false
+        }
+        
+        
+        // 4
+        do {
+          
+          try backgroundContext.save()
+          //people.append(person)
+          LogUtils.Log(from: self,with: "Forecast Record updated.")
+          
+        } catch let error as NSError {
+          LogUtils.Log(from: self,with: "Forecast Record Could not save. \(error), \(error.userInfo)")
+          return false
+        }
+          
+        return true
+    }
     
+    
+    public func dropForecastRecord(with entry:ForecastItem)-> Bool{
+     
+        //Clear Records..
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: CoreDataConstants.FORECAST_TABLE_NAME)
+        //Create match rules ..
+        //Account
+        var predicates = [NSPredicate]()
+        predicates.append(NSPredicate(format: "\(#keyPath(ForecastEntity.cod)) = %@", entry.cod))
+         //Kind
+        predicates.append(NSPredicate(format: "\(#keyPath(ForecastEntity.timestamp)) = %@", argumentArray: [entry.dt]))
+         //Name
+        predicates.append(NSPredicate(format: "\(#keyPath(ForecastEntity.id)) = %@", argumentArray: [entry.id]))
+         //Combine Rules..
+         fetchRequest.predicate = NSCompoundPredicate(type: .and, subpredicates: predicates)
+         //
+         //
+         do {
+             let users = try backgroundContext.fetch(fetchRequest)
+             if users.count > 0{
+                 //
+                 let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+                 //
+                 try backgroundContext.execute(deleteRequest)
+                 try backgroundContext.save()
+             }
+         } catch {
+             LogUtils.Log(from: self,with: "There was an error dropping Forecast entry: \(error)")
+             return false
+         }
+         
+         return true
+     }
 }

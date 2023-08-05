@@ -29,6 +29,7 @@ internal class RequestBuider{
         }
 
         components.queryItems = [
+            URLQueryItem(name: "units", value: "metric"),
             URLQueryItem(name: "lat", value: lat.toString()),
           URLQueryItem(name: "lon", value: lng.toString()),
           URLQueryItem(name: "appid", value: appid)
@@ -52,7 +53,8 @@ internal class RequestBuider{
       }
       
       components.queryItems = [
-          URLQueryItem(name: "lat", value: lat.toString()),
+        URLQueryItem(name: "units", value: "metric"),
+        URLQueryItem(name: "lat", value: lat.toString()),
         URLQueryItem(name: "lon", value: lng.toString()),
         URLQueryItem(name: "appid", value: appid)
       ]

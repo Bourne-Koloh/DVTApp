@@ -11,6 +11,11 @@ public protocol IDataStore {
     
     func dispose()
     
+    func dropForecastRecord(with entry:ForecastItem)-> Bool
+    
+    func addForecastItem(with item :ForecastItem) -> Bool
+    
+    func loadForecastItems() -> [ForecastItem]
 }
 
 extension IDataStore{
@@ -22,4 +27,5 @@ extension IDataStore{
         }
         set{}
     }
+    
 }

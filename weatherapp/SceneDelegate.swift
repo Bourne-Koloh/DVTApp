@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if AppConfig.Shared.preferSwiftUI {
             // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
             // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-            let contentView = LandingView()
+            let contentView = WeatherView()
 
             // Use a UIHostingController as window root view controller.
             window.rootViewController = HostingViewController(rootView: contentView)

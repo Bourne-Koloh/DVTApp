@@ -73,7 +73,7 @@ public class WeatherItem:NSObject,Codable,Identifiable{
     /**
      * Mark:
      */
-    public var weather:DetailsItem?
+    public var weather = [DetailsItem]()
     /**
      * Mark:
      */
@@ -150,7 +150,7 @@ public class WeatherItem:NSObject,Codable,Identifiable{
             main = val
         }
         
-        if let val = try? container.decode(DetailsItem.self, forKey: .weather){
+        if let val = try? container.decode([DetailsItem].self, forKey: .weather){
             weather = val
         }
         
@@ -165,6 +165,11 @@ public class WeatherItem:NSObject,Codable,Identifiable{
         if let val = try? container.decode(UInt64.self, forKey: .count){
             count = val
         }
+        
+        if let val = try? container.decode(String.self, forKey: .dtText){
+            dtText = val
+        }
+        
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -332,6 +337,10 @@ public class InfoItem:Codable{
         
         if let val = try? container.decodeIfPresent(Double.self, forKey: .tempMin) {
             tempMin = val
+        }
+        
+        if let val = try? container.decodeIfPresent(Double.self, forKey: .tempMax) {
+            tempMax = val
         }
         
         if let val = try? container.decodeIfPresent(Double.self, forKey: .seaLevel) {

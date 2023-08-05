@@ -14,13 +14,13 @@ class WeatherViewController:UIViewController {
     
     private let defaultLocation = CLLocation(latitude: -1.2822074, longitude: 36.819080)
     
-    private var forecast:ForecastItem? = nil
+    private var forecastEntries = [WeatherItem]()
     
     private var userLocation:CLLocation?
     
     private var locationManager = CLLocationManager()
     
-    private let preferedTableRowHeight = CGFloat(36)
+    private let preferedTableRowHeight = CGFloat(48)
     
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherTitleLabel: UILabel!
@@ -49,8 +49,6 @@ class WeatherViewController:UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //
-        dateFormatter.dateFormat = "EEEE"
         //
         self.forecastTableView.dataSource = self
         self.forecastTableView.delegate = self
@@ -111,32 +109,32 @@ class WeatherViewController:UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func updateWeather(_ update:WeatherItem?){
+    private func processWeatherData(_ update:WeatherItem?){
         
         if let weather = update {
             //
-            temperatureLabel.text = "\(weather.main?.temp ?? 0)°"
+            temperatureLabel.text = "\(Int(weather.main?.temp.rounded() ?? 0))°"
             //
-            weatherTitleLabel.text = weather.weather?.main ?? "~ ~"
+            weatherTitleLabel.text = weather.weather.first?.main ?? "~ ~"
             //
-            minTemperatureLabel.text = "\(weather.main?.temp ?? 0)°"
+            minTemperatureLabel.text = "\(Int(weather.main?.tempMin.rounded() ?? 0))°"
             //
-            currentTemparatureLabel.text = "\(weather.main?.temp ?? 0)°"
+            currentTemparatureLabel.text = "\(Int(weather.main?.temp.rounded() ?? 0))°"
             //
-            maxTemperatureLabel.text = "\(weather.main?.tempMax ?? 0)°"
+            maxTemperatureLabel.text = "\(Int(weather.main?.tempMax.rounded() ?? 0))°"
             
-            switch(weather.weather?.main){
+            switch(weather.weather.first?.main){
                 case "Rain":
                 weatherImageView.image = UIImage(named: "sea-rainy")
-                view.backgroundColor = UIColor(displayP3Red: CGFloat(0), green: CGFloat(), blue: CGFloat(), alpha: CGFloat(1))
+                view.backgroundColor = UIUtils.colorWeatherSeaRain
                     break
                 case "Sunny":
                 weatherImageView.image = UIImage(named: "sea-sunny")
-                view.backgroundColor = UIColor(displayP3Red: CGFloat(0), green: CGFloat(), blue: CGFloat(), alpha: CGFloat(1))
+                view.backgroundColor = UIUtils.colorWeatherSeaSunny
                     break
-                case "Cloudy":
+                case "Clouds":
                 weatherImageView.image = UIImage(named: "sea-cloudy")
-                view.backgroundColor = UIColor(displayP3Red: CGFloat(87), green: CGFloat(87), blue: CGFloat(93), alpha: CGFloat(1))
+                view.backgroundColor = UIUtils.colorWeatherSeaClouds
                     break
             case .none,.some(_):
                 break
@@ -157,6 +155,25 @@ class WeatherViewController:UIViewController {
         }
     }
     
+    private func processForecastData(_ forecast:ForecastItem){
+        //
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        //
+        var filtered = [WeatherItem]()
+        //
+        for weather in forecast.entries {
+            if !filtered.contains(where: {dateFormatter.string(from: $0.dt) == dateFormatter.string(from: weather.dt) }) {
+                filtered.append(weather)
+            }
+        }
+        //
+        forecastEntries.append(contentsOf: filtered.dropFirst()) //Remove todays weather
+        //
+        dateFormatter.dateFormat = "EEEE"
+        //
+        forecastTableView.reloadData()
+    }
+    
     @objc func loadCurrentWeather(){
         //
         guard let location = userLocation else{
@@ -168,7 +185,7 @@ class WeatherViewController:UIViewController {
             return
         }
         //
-        updateWeather(nil)
+        processWeatherData(nil)
         //
         toggleLoader(true, nil)
         //
@@ -178,7 +195,7 @@ class WeatherViewController:UIViewController {
                 //
                 if(weather != nil){
                     //
-                    weakSelf?.updateWeather(weather)
+                    weakSelf?.processWeatherData(weather)
                 }else{
                     
                     let alert = UIAlertController(title: "Load Forecast Failed", message: "There wan an issue while updating the weather forecast for your location.\n\nPlease try again later ..", preferredStyle: .alert)
@@ -186,12 +203,14 @@ class WeatherViewController:UIViewController {
                     alert.addAction(UIAlertAction(title: "Try Again ..", style: .default, handler: { [weak alert, weak weakSelf = self] (_) in
                         //
                         
-                        weakSelf?.loadForecast()
+                        weakSelf?.loadCurrentWeather()
                         //
                         alert?.dismiss(animated: true, completion: nil)
                     }))
                     //
                     alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { [weak alert, weak weakSelf = self] (_) in
+                        //
+                        weakSelf?.loadCachedWeather()
                         //
                         alert?.dismiss(animated: true, completion: nil)
                     }))
@@ -218,14 +237,15 @@ class WeatherViewController:UIViewController {
             refreshControl.beginRefreshing()
         }
         //
+        forecastEntries.removeAll()
+        //
         WeatherWorkerImpl.getImpl().loadForecastWeather(forLocation: (location.coordinate.latitude, location.coordinate.longitude), { forecast, error in
             //
             DispatchQueue.main.async {[weak weakSelf = self] in
                 //
                 if(forecast != nil){
-                    weakSelf?.forecast = forecast
-                    //
-                    weakSelf?.forecastTableView.reloadData()
+                    
+                    weakSelf?.processForecastData(forecast!)
                 }else{
                     
                     let alert = UIAlertController(title: "Load Forecast Failed", message: "There wan an issue while updating the weather forecast for your location.\n\nPlease try again later ..", preferredStyle: .alert)
@@ -250,6 +270,25 @@ class WeatherViewController:UIViewController {
                 weakSelf?.refreshControl.endRefreshing()
             }
         })
+    }
+    
+    private func loadCachedWeather(){
+        
+        let cache = DataStoreImpl.Shared.loadForecastItems()
+        
+        if !cache.isEmpty, let forecast = cache.first {
+            //
+            processForecastData(forecast)
+            //
+            if let weather = forecast.entries.filter({ item in
+                return item.dt > Date()
+            }).filter({ item in
+                return dateFormatter.string(from: item.dt) == dateFormatter.string(from: Date())
+            }).first{
+                //
+                processWeatherData(weather)
+            }
+        }
     }
     
     private func notifyLocationPermissionsDenied(){
@@ -288,7 +327,7 @@ class WeatherViewController:UIViewController {
     
     private func notifyLocationServicesNotAvailable(){
         
-        let alert = UIAlertController(title: "Location Access Failed", message: "It appears your device does not have location services or they have been disable.\n\nThis app requires your location to work properly", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Location Services Missing", message: "It appears your device does not have location services or they have been disable.\n\nThis app requires your location to work properly", preferredStyle: .alert)
         
         
         //Check if running on a teblet ..
@@ -305,7 +344,7 @@ class WeatherViewController:UIViewController {
             alert?.dismiss(animated: true, completion: nil)
         }))
         //
-        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { [weak alert, weak weakSelf = self] (_) in
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { [weak alert] (_) in
             
             //
             alert?.dismiss(animated: true, completion: nil)
@@ -317,6 +356,22 @@ class WeatherViewController:UIViewController {
 
 
 extension WeatherViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ clmanager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        //
+        switch CLLocationManager.authorizationStatus() {
+            case .authorizedAlways, .authorizedWhenInUse:
+                self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                self.locationManager.startUpdatingLocation()
+                break
+        case .notDetermined,.restricted,.denied:
+            self.notifyLocationPermissionsDenied()
+            break
+        @unknown default:
+                break
+        }
+        
+    }
     // MARK: - CL Manager Delegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location: CLLocationCoordinate2D = manager.location?.coordinate else {
@@ -349,7 +404,7 @@ extension WeatherViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         //
-        return forecast?.entries.count ?? 0
+        return forecastEntries.count ?? 0
     }
     
 }
@@ -371,26 +426,26 @@ extension WeatherViewController:UITableViewDelegate{
         cell.layer.backgroundColor = UIColor.clear.cgColor
         cell.accessoryType = UITableViewCell.AccessoryType.none
         //cell.selectionStyle = UITableViewCell.SelectionStyle.gray;
-        var item = forecast!.entries[indexPath.row]
+        let item = forecastEntries[indexPath.row]
         
         //Clear
         cell.DayLabel.text = dateFormatter.string(from: item.dt)
         
-        switch(item.weather?.main){
+        switch(item.weather.first?.main){
             case "Rain":
             cell.WeatherIcon.image = UIImage(named: "rain")
                 break
             case "Sunny":
-            cell.WeatherIcon.image = UIImage(named: "partlysunny")
-                break
-            case "Cloudy":
             cell.WeatherIcon.image = UIImage(named: "clear")
+                break
+            case "Clouds":
+            cell.WeatherIcon.image = UIImage(named: "partlysunny")
                 break
         case .none,.some(_):
             break
         }
         //
-        cell.TempLabel.text = "\(item.main?.temp ?? 0.0)°"
+        cell.TempLabel.text = "\(Int(item.main?.temp ?? 0.0))°"
         //
         return cell
     }
@@ -425,7 +480,7 @@ extension WeatherViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         //
-        var item = forecast?.entries[indexPath.row]
+        _ = forecastEntries[indexPath.row]
         
         //
     }
@@ -458,23 +513,14 @@ extension WeatherViewController {
                     //
                     var w = CGFloat(0.0), h = CGFloat(0.0)
                     
-                    //Height with respect to stroryboard design device (iPhone XS Max)
-                    let screenHeightRatio = UIScreen.main.bounds.height / 896.0
-                    //Width ratio with respect to  stroryboard design device (iPhone XS Max)
-                    let screenWidthRatio = UIScreen.main.bounds.width / 414.0
-                    
                     //
                     if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
                     
-                        w = max(200,130 * max(screenWidthRatio,screenHeightRatio))
-                        //min(rootVC.view.frame.size.width / 2 , rootVC.view.frame.size.height / 5)
-                           
-                        h = max(200,130 * max(screenWidthRatio,screenHeightRatio))
+                        w = max(200,130 * max(UIUtils.screenWidthRatio,UIUtils.screenHeightRatio))
+                        h = max(200,130 * max(UIUtils.screenWidthRatio,UIUtils.screenHeightRatio))
                     }else{
-                        w = max(180,130 * max(screenWidthRatio,screenHeightRatio))
-                        //min(rootVC.view.frame.size.width / 2 , rootVC.view.frame.size.height / 5)
-                           
-                        h = max(180,130 * max(screenWidthRatio,screenHeightRatio))
+                        w = max(180,130 * max(UIUtils.screenWidthRatio,UIUtils.screenHeightRatio))
+                        h = max(180,130 * max(UIUtils.screenWidthRatio,UIUtils.screenHeightRatio))
                     }
                     //
                     loadingView.heightAnchor.constraint(equalToConstant: h).isActive = true
@@ -484,6 +530,9 @@ extension WeatherViewController {
                     loadingView.centerYAnchor.constraint(equalTo: rootVC.view.centerYAnchor).isActive = true
                     loadingView.layer.cornerRadius = 8
                     loadingView.clipsToBounds = true
+                    //
+                    loadingView.activity.color = UIColor.white
+                    loadingView.backgroundColor = UIUtils.colorAccent
                     //
                     self.loadingView = loadingView
                 }

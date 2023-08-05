@@ -14,8 +14,8 @@
             filePath = "weatherapp/UI/Landing/Controllers/WeatherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "446"
-            endingLineNumber = "446"
+            startingLineNumber = "501"
+            endingLineNumber = "501"
             landmarkName = "toggleLoader(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,16 +23,160 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8F307BA6-FE8F-4230-AF35-80A96C55E430"
-            shouldBeEnabled = "Yes"
+            uuid = "0F3B3AB0-0483-495D-9304-EAF598A4DA50"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "weathercore/AppConfig.swift"
+            filePath = "weathercore/Models/WeatherItem.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "init()"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0F3B3AB0-0483-495D-9304-EAF598A4DA50 - 494d7c330c942404"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weathercore.InfoItem.init(from: Swift.Decoder) throws -&gt; weathercore.InfoItem"
+                  moduleName = "weathercore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bournek/Documents/X-Code%20Projects/weatherapp/weathercore/Models/WeatherItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "325"
+                  endingLineNumber = "325"
+                  offsetFromSymbolStart = "432">
+               </Location>
+               <Location
+                  uuid = "0F3B3AB0-0483-495D-9304-EAF598A4DA50 - 494d7c330c942404"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weathercore.InfoItem.init(from: Swift.Decoder) throws -&gt; weathercore.InfoItem"
+                  moduleName = "weathercore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bournek/Documents/X-Code%20Projects/weatherapp/weathercore/Models/WeatherItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "325"
+                  endingLineNumber = "325"
+                  offsetFromSymbolStart = "582">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "662108CC-818D-4188-BE99-0ED3500223B3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherapp/UI/Landing/Controllers/WeatherViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "432"
+            endingLineNumber = "432"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE253B91-F3F7-468C-9833-D7A6169919D7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherapp/UI/Landing/Controllers/WeatherViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "loadForecast()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63856866-D80F-4BFC-8824-1D941B8F0FBF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weathercore/Models/WeatherItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "63856866-D80F-4BFC-8824-1D941B8F0FBF - 3d7ef98df8a2b082"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weathercore.WeatherItem.init(from: Swift.Decoder) throws -&gt; weathercore.WeatherItem"
+                  moduleName = "weathercore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bournek/Documents/X-Code%20Projects/weatherapp/weathercore/Models/WeatherItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "5776">
+               </Location>
+               <Location
+                  uuid = "63856866-D80F-4BFC-8824-1D941B8F0FBF - 3d7ef98df8a2b082"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weathercore.WeatherItem.init(from: Swift.Decoder) throws -&gt; weathercore.WeatherItem"
+                  moduleName = "weathercore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bournek/Documents/X-Code%20Projects/weatherapp/weathercore/Models/WeatherItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "5961">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C630291C-93D7-4093-89C4-2AFC9CAC3D18"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherapp/UI/Landing/Controllers/WeatherViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "processWeatherData(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3B070B9-11A4-4027-95B5-86031AFF5A9E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherapp/UI/Landing/Views/ForecastRowView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init(weather:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

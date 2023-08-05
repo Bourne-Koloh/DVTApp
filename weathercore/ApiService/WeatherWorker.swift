@@ -19,13 +19,13 @@ public protocol IWeatherWorker:NSObject {
     /// - Parameter serahcTitle: optional `String` ther report title
     /// - Returns: alist of `GitRepoItem` objects.
     @available(iOS 13.0, *)
-    func loadCurrentWeather(withLocation coords: (Double,Double)) -> AnyPublisher<WeatherItem?, RequestState>
+    func loadCurrentWeather(withLocation coords: (Double,Double)) -> AnyPublisher<WeatherItem, RequestState>
     /// Load details of a git repository
     /// - Warning: -
     /// - Parameter repo: The `GitRepoItem` to be loaded.
     /// - Returns: The repository details, if the request failed, a nil is returned
     @available(iOS 13.0, *)
-    func loadForecastWeather(forLocation coords: (Double,Double)) -> AnyPublisher<ForecastItem?, RequestState>
+    func loadForecastWeather(forLocation coords: (Double,Double)) -> AnyPublisher<ForecastItem, RequestState>
     
     
     //IMPL for iOS  < 13.0
@@ -75,6 +75,7 @@ public class WeatherWorkerImpl :NSObject, IWeatherWorker {
         return URLSession(configuration: configuration,delegate: self,delegateQueue: operationQueue)
     }()
     
+    private let dataStore = DataStoreImpl.Shared
     
     private override init(){
         //
@@ -97,7 +98,7 @@ extension WeatherWorkerImpl: URLSessionDelegate{
 extension WeatherWorkerImpl {
     
     //MARK:-
-    public func loadCurrentWeather(withLocation coords: (Double,Double)) -> AnyPublisher<WeatherItem?, RequestState> {
+    public func loadCurrentWeather(withLocation coords: (Double,Double)) -> AnyPublisher<WeatherItem, RequestState> {
         //
         let urlComponents = RequestBuider.buildWeatherApiComponents(latitude: coords.0, longitude: coords.1)
         //
@@ -120,7 +121,7 @@ extension WeatherWorkerImpl {
     }
     
     //MARK:-
-    public func loadForecastWeather(forLocation coords: (Double,Double)) -> AnyPublisher<ForecastItem?, RequestState>{
+    public func loadForecastWeather(forLocation coords: (Double,Double)) -> AnyPublisher<ForecastItem, RequestState>{
         //
         let urlComponents = RequestBuider.buildForecastApiComponents(latitude: coords.0, longitude: coords.1)
         //
@@ -137,6 +138,10 @@ extension WeatherWorkerImpl {
           .flatMap(maxPublishers: .max(1)) { pair in
               ResponseDecoder.decode(pair.data)
           }
+          .map({ response in
+              _ = self.dataStore.addForecastItem(with: response)
+              return response
+          })
           .eraseToAnyPublisher()
     }
 }
@@ -202,7 +207,7 @@ extension WeatherWorkerImpl {
     public func loadForecastWeather(forLocation coords: (Double,Double), _ completion: @escaping ( ForecastItem?, RequestState) -> Void) -> Swift.Void{
         
         //
-        var urlComponents = RequestBuider.buildForecastApiComponents(latitude: coords.0, longitude: coords.1)
+        let urlComponents = RequestBuider.buildForecastApiComponents(latitude: coords.0, longitude: coords.1)
         //
         guard let url = urlComponents.url else {
             let error = RequestState.networkError(description: "Couldn't create Weather API URL")
@@ -248,6 +253,9 @@ extension WeatherWorkerImpl {
             }
             
             completion(payload,RequestState.none(description: "Success"))
+            
+            //Cache the item,
+            _ = self.dataStore.addForecastItem(with: payload)
             
         })
         task.resume()

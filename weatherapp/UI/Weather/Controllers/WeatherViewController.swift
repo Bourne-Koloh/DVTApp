@@ -72,6 +72,7 @@ class WeatherViewController:UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         //
+        locationManager.delegate = self
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -90,10 +91,7 @@ class WeatherViewController:UIViewController {
                             weakSelf?.notifyLocationPermissionsDenied()
                             break
                         case .authorizedAlways, .authorizedWhenInUse:
-                            
-                            weakSelf?.locationManager.delegate = self
-                            weakSelf?.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-                            weakSelf?.locationManager.startUpdatingLocation()
+                            //Allowed.
                             break
                         @unknown default:
                             break

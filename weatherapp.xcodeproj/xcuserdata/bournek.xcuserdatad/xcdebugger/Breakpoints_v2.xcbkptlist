@@ -14,8 +14,8 @@
             filePath = "weatherapp/UI/Weather/Controllers/WeatherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "loadCachedWeather()"
             landmarkType = "7">
             <Locations>
@@ -55,49 +55,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4770DA49-8BF8-48AE-B6C8-3F98516EF5A4"
+            uuid = "7B57251D-E41E-44C1-9B07-9C96F8FDB2EA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherapp/UI/Weather/Controllers/WeatherViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "385"
+            endingLineNumber = "385"
+            landmarkName = "locationManager(_:didChangeAuthorization:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB4F652C-153B-463C-AC96-0DAC99B48E79"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "weathercore/Repo/Local/DataStoreImpl.swift"
+            filePath = "weatherapp/UI/Weather/Controllers/WeatherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "loadForecastItems()"
+            startingLineNumber = "527"
+            endingLineNumber = "527"
+            landmarkName = "toggleLoader(_:_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4770DA49-8BF8-48AE-B6C8-3F98516EF5A4 - c14eaa6dd72c100e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "weathercore.DataStoreImpl.loadForecastItems() -&gt; Swift.Array&lt;weathercore.ForecastItem&gt;"
-                  moduleName = "weathercore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bournek/Documents/X-Code%20Projects/weatherapp/weathercore/Repo/Local/DataStoreImpl.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "1453">
-               </Location>
-               <Location
-                  uuid = "4770DA49-8BF8-48AE-B6C8-3F98516EF5A4 - c14eaa6dd72c100e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "weathercore.DataStoreImpl.loadForecastItems() -&gt; Swift.Array&lt;weathercore.ForecastItem&gt;"
-                  moduleName = "weathercore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bournek/Documents/X-Code%20Projects/weatherapp/weathercore/Repo/Local/DataStoreImpl.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "1716">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

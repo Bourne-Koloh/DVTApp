@@ -8,7 +8,9 @@
 
 import Foundation
 
-
+/**
+ * MARK: This class is a singletone share current application configuration
+ */
 public class AppConfig:NSObject,Decodable{
     
     fileprivate static let DEFAULT_USER_STORE_KEY = "app-cache"

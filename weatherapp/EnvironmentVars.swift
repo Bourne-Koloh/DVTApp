@@ -7,7 +7,9 @@
 //
 
 import Foundation
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
 import weathercore
 
 struct ApiServiceKey: EnvironmentKey {

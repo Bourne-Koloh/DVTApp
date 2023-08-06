@@ -3,9 +3,11 @@
 //  weatherapp
 //
 //  Created by Bourne Koloh on 05/08/2023.
+//  Email : bournekolo@icloud.com
 //
-
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
 import UIKit
 
 extension UIColor {

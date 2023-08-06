@@ -78,8 +78,13 @@ public class ForecastItem:NSObject,Codable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
-        
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(id , forKey: .id)
+        try? container.encode(count , forKey: .count)
+        try? container.encode(cod , forKey: .cod)
+        try? container.encode(message , forKey: .message)
+        try? container.encode(entries , forKey: .entries)
+        try? container.encode(city , forKey: .city)
     }
 }
 
@@ -158,7 +163,14 @@ public class ForecastCity:Codable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(id , forKey: .id)
+        try? container.encode(population , forKey: .population)
+        try? container.encode(name , forKey: .name)
+        try? container.encode(country , forKey: .country)
+        try? container.encode(timezone , forKey: .timezone)
+        try? container.encode(sunrise , forKey: .sunrise)
+        try? container.encode(sunset , forKey: .sunset)
         
     }
 }

@@ -7,12 +7,16 @@
 
 import Foundation
 
+
+/**
+ * MARK: This class helps build the weather API request query parameters
+ */
 internal class RequestBuider{
     
     static let scheme = "https"
     static let host = "api.openweathermap.org"
     static let path = "/data/2.5"
-    static let demoKey = "5c137103d4cc44f4ffe795af8d6f6d6e"
+    static let demoKey = "<key here >"
       
     static func buildWeatherApiComponents(latitude lat:Double,longitude lng:Double) -> URLComponents {
         var components = URLComponents()

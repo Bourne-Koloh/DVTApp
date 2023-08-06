@@ -19,10 +19,15 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 	<key>weather-api-key</key>
 	<string>5c137103d4cc44f4ffe795af8d6f6d6e</string>
 	<key>prefer-swiftui</key>
-	<true/>
+	<false/>
 	<key>is-devt</key>
 	<true/>
 </dict>

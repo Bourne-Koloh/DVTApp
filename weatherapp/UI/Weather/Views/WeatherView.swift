@@ -3,6 +3,7 @@
 //  weatherapp
 //
 //  Created by Bourne Koloh on 02/08/2023.
+//  Email : bournekolo@icloud.com
 //
 
 import SwiftUI
@@ -26,7 +27,6 @@ struct WeatherView: View {
                 viewModel.updateForecast(withLocation: viewModel.location)
             }),.cancel(Text("Dismiss"),action: {
                 //
-                viewModel.loadCachedWeather()
             })])
     }
     
@@ -74,7 +74,7 @@ struct WeatherView: View {
         
         GeometryReader { parentGeometry in
             
-            //
+            //Loader
             LoadingView(title: nil, isShowing: $viewModel.isLoading) {
                 
                 //
@@ -115,7 +115,7 @@ struct WeatherView: View {
                     //
                     HStack(spacing: 10){
                         
-                        //
+                        //Left
                         VStack{
                             
                             Text(viewModel.currentMinTemp)
@@ -128,7 +128,7 @@ struct WeatherView: View {
                         }
                         //
                         Spacer()
-                        //
+                        //Middle
                         VStack{
                             
                             Text(viewModel.currentTemp)
@@ -141,7 +141,7 @@ struct WeatherView: View {
                         }
                         
                         Spacer()
-                        //
+                        //Right
                         VStack{
                             
                             Text(viewModel.currentMaxTemp)
@@ -161,36 +161,70 @@ struct WeatherView: View {
                         .frame(width: parentGeometry.size.width, height: 1)
                     
                     //Forecast Items ...
-                    List {
-                        //
-                        if viewModel.forecastEntries.isEmpty && !viewModel.isLoading {
-                            //Place holder for empty list
-                            if viewModel.errorMessage.lengthOfBytes(using: .utf8) > 0 {
-                                
-                                Text("Loaded Forecast Failed..")
-                                    .foregroundColor(.gray)
-                                    .frame(maxWidth: .infinity)
-                                    .listRowBackground(Color.clear)
+                    if #available(iOS 15.0, *) {
+                        List {
+                            //
+                            if viewModel.forecastEntries.isEmpty && !viewModel.isLoading {
+                                //Place holder for empty list
+                                if viewModel.errorMessage.lengthOfBytes(using: .utf8) > 0 {
+                                    
+                                    Text("Loaded Forecast Failed..")
+                                        .foregroundColor(.gray)
+                                        .frame(maxWidth: .infinity)
+                                        .listRowBackground(Color.clear)
+                                }else{
+                                    
+                                    Text("No Forecast Weather Loaded ...")
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.clear)
+                                        .foregroundColor(.white)
+                                        .listRowBackground(Color.clear)
+                                }
                             }else{
-                                
-                                Text("No Forecast Weather Loaded ...")
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.clear)
-                                    .foregroundColor(.white)
-                                    .listRowBackground(Color.clear)
-                            }
-                        }else{
-                            //Show the items
-                            ForEach(viewModel.forecastEntries) {item in
-                                //
-                                if #available(iOS 15.0, *) {
+                                //Show the items
+                                ForEach(viewModel.forecastEntries) {item in
+                                    //
                                     ForecastRowView.init(weather:item)
                                         .onAppear {
                                             //
                                         }
                                         .animation(.easeIn)
                                         .listRowSeparator(.hidden)
-                                } else {
+                                }
+                            }
+                        }
+                        .listStyle(PlainListStyle())
+                        .listRowBackground(Color.red)
+                        .background(Color.clear)
+                        .environment(\.horizontalSizeClass, .regular)
+                        //.padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                        .refreshable {
+                            viewModel.refreshData()
+                        }
+                    } else {
+                        // Fallback on earlier versions
+                        
+                        List {
+                            //
+                            if viewModel.forecastEntries.isEmpty && !viewModel.isLoading {
+                                //Place holder for empty list
+                                if viewModel.errorMessage.lengthOfBytes(using: .utf8) > 0 {
+                                    
+                                    Text("Load Weather Forecast Failed..")
+                                        .foregroundColor(.gray)
+                                        .frame(maxWidth: .infinity)
+                                        .listRowBackground(Color.clear)
+                                }else{
+                                    
+                                    Text("No Forecast Weather Loaded ...")
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.clear)
+                                        .foregroundColor(.white)
+                                        .listRowBackground(Color.clear)
+                                }
+                            }else{
+                                //Show the items
+                                ForEach(viewModel.forecastEntries) {item in
                                     //
                                     ForecastRowView.init(weather:item)
                                         .onAppear {
@@ -200,12 +234,11 @@ struct WeatherView: View {
                                 }
                             }
                         }
+                        .listStyle(PlainListStyle())
+                        .listRowBackground(Color.red)
+                        .background(Color.clear)
+                        .environment(\.horizontalSizeClass, .regular)
                     }
-                    .listStyle(PlainListStyle())
-                    .listRowBackground(Color.red)
-                    .background(Color.clear)
-                    .environment(\.horizontalSizeClass, .regular)
-                    //.padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                 }
             }
            
@@ -215,6 +248,8 @@ struct WeatherView: View {
         .onAppear{
             //
             viewModel.requestLocationAccessAuthorisation()
+            //
+            viewModel.loadCachedWeather()
         }
         .actionSheet(isPresented: $viewModel.showErrorAlert) {
             loadErrorActionSheet

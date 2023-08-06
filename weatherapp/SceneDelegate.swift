@@ -3,9 +3,9 @@
 //  weatherapp
 //
 //  Created by Bourne Koloh on 02/08/2023.
+//  Email : bournekolo@icloud.com
 //
 
-import Foundation
 import UIKit
 import SwiftUI
 import weathercore

@@ -123,9 +123,13 @@ public class DataStoreImpl:NSObject,IDataStore{
                 item.message = r0.message
                 item.count = r0.count
                  //
-                item.city = try? decoder.decode(ForecastCity.self, from: r0.city.data(using: .utf8)!)
+                if let value = try? decoder.decode(ForecastCity.self, from: r0.city){
+                    item.city = value
+                }
                  //
-                item.entries = try! decoder.decode([WeatherItem].self, from: r0.entries.data(using: .utf8)!)
+                if let value = try? decoder.decode([WeatherItem].self, from: r0.entries){
+                    item.entries = value
+                }
                  
                  //
                  list.append(item)
@@ -159,10 +163,10 @@ public class DataStoreImpl:NSObject,IDataStore{
             //Drop them..
             if matches.count > 0{
                 //
-                entity = matches[0]
+                entity = matches.first
                 //
                 if(matches.count > 1){
-                    //Clear Records..
+                    //Clear all Records..
                     let deleteRequest = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: CoreDataConstants.FORECAST_TABLE_NAME))
                     //
                     try backgroundContext.execute(deleteRequest)
@@ -185,11 +189,13 @@ public class DataStoreImpl:NSObject,IDataStore{
             let encoder = JSONEncoder()
             
             if let json  = try? encoder.encode(item.city){
-                entity?.city =  String(data: json, encoding: .utf8)!
+                LogUtils.Log(from: self, with: String(data: json, encoding: .utf8)!)
+                entity?.city =  json
             }
             
             if let json  = try? encoder.encode(item.entries) {
-                entity?.entries = String(data: json, encoding: .utf8)!
+                LogUtils.Log(from: self, with: String(data: json, encoding: .utf8)!)
+                entity?.entries = json
             }
             
         } catch {

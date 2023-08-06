@@ -173,7 +173,24 @@ public class WeatherItem:NSObject,Codable,Identifiable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
+        //
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(id , forKey: .id)
+        try? container.encode(dt , forKey: .dt)
+        try? container.encode(base , forKey: .base)
+        try? container.encode(visibility , forKey: .visibility)
+        try? container.encode(timezone , forKey: .timezone)
+        try? container.encode(name , forKey: .name)
+        try? container.encode(sys , forKey: .sys)
+        try? container.encode(clouds , forKey: .clouds)
+        try? container.encode(rain , forKey: .rain)
+        try? container.encode(wind , forKey: .wind)
+        try? container.encode(main , forKey: .main)
+        try? container.encode(weather , forKey: .weather)
+        try? container.encode(coord , forKey: .coord)
+        try? container.encode(pop , forKey: .pop)
+        try? container.encode(count , forKey: .count)
+        try? container.encode(dtText , forKey: .dtText)
         
     }
 }
@@ -207,7 +224,10 @@ public class CoordItem:Codable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
+        //
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(lat , forKey: .lat)
+        try? container.encode(lng , forKey: .lng)
         
     }
 }
@@ -261,7 +281,12 @@ public class DetailsItem:Codable,Identifiable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
+        //
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(id , forKey: .id)
+        try? container.encode(main , forKey: .main)
+        try? container.encode(description , forKey: .description)
+        try? container.encode(icon , forKey: .icon)
         
     }
 }
@@ -365,7 +390,17 @@ public class InfoItem:Codable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
+        //
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(temp , forKey: .temp)
+        try? container.encode(feelsLike , forKey: .feelsLike)
+        try? container.encode(tempMax , forKey: .tempMax)
+        try? container.encode(tempMin , forKey: .tempMin)
+        try? container.encode(seaLevel , forKey: .seaLevel)
+        try? container.encode(pressure , forKey: .pressure)
+        try? container.encode(humidity , forKey: .humidity)
+        try? container.encode(groundLevel , forKey: .groundLevel)
+        try? container.encode(tempKF , forKey: .tempKF)
         
     }
 }
@@ -409,7 +444,11 @@ public class WindsItem:Codable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
+        //
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(speed , forKey: .speed)
+        try? container.encode(deg , forKey: .deg)
+        try? container.encode(gust , forKey: .gust)
         
     }
 }
@@ -447,7 +486,10 @@ public class RainItem:Codable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
+        //
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(rainVolume1Hour , forKey: .rainVolume1Hour)
+        try? container.encode(rainVolume3Hour , forKey: .rainVolume3Hour)
         
     }
 }
@@ -487,7 +529,10 @@ public class SnowItem:Codable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
+        //
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(rainVolume1Hour , forKey: .rainVolume1Hour)
+        try? container.encode(rainVolume3Hour , forKey: .rainVolume3Hour)
         
     }
 }
@@ -513,7 +558,10 @@ public class CloudsItem:Codable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
+        //
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(all , forKey: .all)
+        
         
     }
 }
@@ -586,7 +634,14 @@ public class SysItem:Codable,Identifiable{
     }
     
     public func encode(to encoder: Encoder) throws {
-        //let container = encoder.container(keyedBy: CodingKeys.self)
+        //
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(id , forKey: .id)
+        try? container.encode(sunrise , forKey: .sunrise)
+        try? container.encode(sunset , forKey: .sunset)
+        try? container.encode(type , forKey: .type)
+        try? container.encode(country , forKey: .country)
+        try? container.encode(pod , forKey: .pod)
         
     }
 }

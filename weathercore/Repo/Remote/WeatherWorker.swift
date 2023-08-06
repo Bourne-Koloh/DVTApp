@@ -11,44 +11,50 @@ import Combine
 
 let dateFormatter = DateFormatter()
 
+/**
+ * MARK: Abstraction of the weather features
+ */
 public protocol IWeatherWorker:NSObject {
     
+    /// Get the shared singletone implementation of this protocol
+    /// - Returns: Shared instance of this protocal
     static func getImpl() -> IWeatherWorker
-    /// Load all repositories, an optional filter for repo title
-    /// - Warning: -
-    /// - Parameter serahcTitle: optional `String` ther report title
-    /// - Returns: alist of `GitRepoItem` objects.
+    
+    
+    /// Load current weather information for specified location
+    /// - Warning: - Call requires iOS 13.x or higher
+    /// - Parameter location: The location(lat,lon) of this device/user
+    /// - Returns: a publisher of the request results
     @available(iOS 13.0, *)
     func loadCurrentWeather(withLocation coords: (Double,Double)) -> AnyPublisher<WeatherItem, RequestState>
-    /// Load details of a git repository
-    /// - Warning: -
-    /// - Parameter repo: The `GitRepoItem` to be loaded.
-    /// - Returns: The repository details, if the request failed, a nil is returned
+    /// Load forecast weather for specified location
+    /// - Warning: - Call requires iOS 13.x or higher
+    /// - Parameter location: The location of this device/user
+    /// - Returns: a publisher of the request results
     @available(iOS 13.0, *)
     func loadForecastWeather(forLocation coords: (Double,Double)) -> AnyPublisher<ForecastItem, RequestState>
     
     
-    //IMPL for iOS  < 13.0
-    /// Load all repositories, an optional filter for repo title
-    /// - Warning: -
-    /// - Parameter serahcTitle: optional `String` ther report title
-    /// - Returns: alist of `GitRepoItem` objects.
+    
+    /// Implemenation of iOS < 13.* to load current weather information for specified location
+    /// - Parameter location: The location(lat,lon) for the device location
+    /// - Parameter completion: A completion handler to receive the request results
     func loadCurrentWeather(withLocation coords: (Double,Double),_ completion: @escaping ( WeatherItem?, RequestState) -> Void) -> Swift.Void
-    /// Load details of a git repository
-    /// - Warning: -
-    /// - Parameter repo: The `GitRepoItem` to be loaded.
-    /// - Returns: The repository details, if the request failed, a nil is returned
+    
+    /// Implemenation of iOS < 13.* to load forecast weather for specified location
+    /// - Parameter location: The location(lat,lon) for the device location
+    /// - Parameter completion: A completion handler to receive the request results
     func loadForecastWeather(forLocation coords: (Double,Double), _ completion: @escaping ( ForecastItem?, RequestState) -> Void) -> Swift.Void
 }
 
 extension IWeatherWorker{
-    
+    ///Default Implementation
     public static func getImpl() -> IWeatherWorker{
         return WeatherWorkerImpl.Shared
     }
 }
 
-///The class f=managing all requests in this app
+///The class for managing all requests in this app
 public class WeatherWorkerImpl :NSObject, IWeatherWorker {
     //MARK: Local queue for managing http requests
     internal let operationQueue = OperationQueue()
@@ -243,7 +249,7 @@ extension WeatherWorkerImpl {
             LogUtils.Log(from: self, with: responseString)
             
             
-            //
+            //Decoder
             let decoder = JSONDecoder()
             //
             guard let payload = try? decoder.decode(ForecastItem.self, from: data) else {

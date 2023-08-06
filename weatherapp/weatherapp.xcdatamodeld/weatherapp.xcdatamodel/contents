@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22A5373b" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="ForecastEntity" representedClassName="weathercore.ForecastEntity" syncable="YES">
-        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="city" optional="YES" attributeType="Binary"/>
         <attribute name="cod" optional="YES" attributeType="String"/>
         <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="entries" optional="YES" attributeType="String"/>
+        <attribute name="entries" optional="YES" attributeType="Binary"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="message" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

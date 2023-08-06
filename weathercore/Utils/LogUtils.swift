@@ -11,7 +11,8 @@ public class LogUtils{
     public static func Log(from obj:AnyObject, with :String){
         //
         #if DEBUG
-        print("\(String(describing: type(of: obj))) ≈> \(with)")
+        //Unccoment to write to lldb console
+        //print("\(String(describing: type(of: obj))) ≈> \(with)")
         #endif
     }
 }

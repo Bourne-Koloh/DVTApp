@@ -1,4 +1,4 @@
-﻿<!-- Improved compatibility of back to top link: See: https://github.com/Bourne-Koloh/DVTApp/pull/73 -->
+<!-- Improved compatibility of back to top link: See: https://github.com/Bourne-Koloh/DVTApp/pull/73 -->
 <a name="readme-top"></a>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -126,10 +126,19 @@ This is an example of how to list things you need to use the software and how to
    ```
 3. Double click `weatherapp.xcodeproj` to load the project in XCode
 4. Enter your API in `Info.plist` 
-   ```swift
+   ```sh
    property = weather-api-key
    value = 'ENTER YOUR API'
    ```
+5. Then build and the project in XCode or you cab build it from terminal by using the command below to build and launch on iPhone 14 emulator
+    ```sh
+    xcodebuild \
+    -project weatherapp.xcodeproj \
+    -scheme weatherapp \
+    -sdk iphonesimulator \
+    -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' \
+    test
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

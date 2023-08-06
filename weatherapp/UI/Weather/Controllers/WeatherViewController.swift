@@ -107,8 +107,6 @@ class WeatherViewController:UIViewController {
             
             
         }
-        //Display
-        loadCachedWeather()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -169,7 +167,7 @@ class WeatherViewController:UIViewController {
         var filtered = [WeatherItem]()
         //
         for weather in forecast.entries {
-            if !filtered.contains(where: {dateFormatter.string(from: $0.dt) == dateFormatter.string(from: weather.dt) }) {
+            if !filtered.contains(where: {dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval($0.dt))) == dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(weather.dt))) }) {
                 filtered.append(weather)
             }
         }
@@ -255,7 +253,7 @@ class WeatherViewController:UIViewController {
                     weakSelf?.processForecastData(forecast!)
                 }else{
                     
-                    let alert = UIAlertController(title: "Load Forecast Failed", message: "There wan an issue while updating the weather forecast for your location.\n\nPlease try again later ..", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Load Forecast Failed", message: "There wan an issue while updating the weather forecast for your location.\n\nPlease try again later ..", preferredStyle: .actionSheet)
                     
                     alert.addAction(UIAlertAction(title: "Try Again ..", style: .default, handler: { [weak alert, weak weakSelf = self] (_) in
                         //
@@ -265,11 +263,11 @@ class WeatherViewController:UIViewController {
                         alert?.dismiss(animated: true, completion: nil)
                     }))
                     //
-                    alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { [weak alert, weak weakSelf = self] (_) in
+                    alert.addAction(UIAlertAction(title: "Use Offline Data", style: .cancel, handler: { [weak alert, weak weakSelf = self] (_) in
                         //
                         alert?.dismiss(animated: true, completion: nil)
                         //
-                        weakSelf?.forecastTableView.reloadData()
+                        weakSelf?.loadCachedWeather()
                     }))
                     //
                     self.present(alert, animated: true,completion: nil)
@@ -292,9 +290,9 @@ class WeatherViewController:UIViewController {
             processForecastData(forecast)
             //
             if let weather = forecast.entries.filter({ item in
-                return item.dt > Date()
+                return Date(timeIntervalSince1970: TimeInterval(item.dt)) > Date()
             }).filter({ item in
-                return dateFormatter.string(from: item.dt) == dateFormatter.string(from: Date())
+                return dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(item.dt))) == dateFormatter.string(from: Date())
             }).first{
                 //
                 processWeatherData(weather)
@@ -449,7 +447,7 @@ extension WeatherViewController:UITableViewDelegate{
             let item = forecastEntries[indexPath.row]
             
             //Clear
-            cell.DayLabel.text = dateFormatter.string(from: item.dt)
+            cell.DayLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(item.dt)))
             
             switch(item.weather.first?.main){
             case "Rain":

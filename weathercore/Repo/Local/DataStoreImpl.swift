@@ -112,6 +112,7 @@ public class DataStoreImpl:NSObject,IDataStore{
              let records = try backgroundContext.fetch(fetchRequest)
              
              let decoder = JSONDecoder()
+             decoder.dateDecodingStrategy = .secondsSince1970
              
             for (i,r0) in records.enumerated() {
                  

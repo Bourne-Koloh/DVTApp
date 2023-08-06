@@ -21,12 +21,13 @@ struct WeatherView: View {
     
     var loadErrorActionSheet: ActionSheet{
         
-        ActionSheet(title: Text("Error").font(.title), message: Text("\(viewModel.errorMessage)"), buttons: [
+        ActionSheet(title: Text("Network Failure").font(.system(size: 22)), message: Text("\(viewModel.errorMessage)"), buttons: [
             .default(Text("Try Again"), action: {
                 //
                 viewModel.updateForecast(withLocation: viewModel.location)
-            }),.cancel(Text("Dismiss"),action: {
+            }),.cancel(Text("Use Offline Data"),action: {
                 //
+                viewModel.loadCachedWeather()
             })])
     }
     
@@ -162,24 +163,15 @@ struct WeatherView: View {
                     
                     //Forecast Items ...
                     if #available(iOS 15.0, *) {
-                        List {
+                        List() {
                             //
                             if viewModel.forecastEntries.isEmpty && !viewModel.isLoading {
                                 //Place holder for empty list
-                                if viewModel.errorMessage.lengthOfBytes(using: .utf8) > 0 {
-                                    
-                                    Text("Loaded Forecast Failed..")
-                                        .foregroundColor(.gray)
-                                        .frame(maxWidth: .infinity)
-                                        .listRowBackground(Color.clear)
-                                }else{
-                                    
-                                    Text("No Forecast Weather Loaded ...")
-                                        .frame(maxWidth: .infinity)
-                                        .background(Color.clear)
-                                        .foregroundColor(.white)
-                                        .listRowBackground(Color.clear)
-                                }
+                                Text("No Forecast Weather Loaded ...")
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.clear)
+                                    .foregroundColor(.white)
+                                    .listRowBackground(Color.clear)
                             }else{
                                 //Show the items
                                 ForEach(viewModel.forecastEntries) {item in
@@ -208,20 +200,11 @@ struct WeatherView: View {
                             //
                             if viewModel.forecastEntries.isEmpty && !viewModel.isLoading {
                                 //Place holder for empty list
-                                if viewModel.errorMessage.lengthOfBytes(using: .utf8) > 0 {
-                                    
-                                    Text("Load Weather Forecast Failed..")
-                                        .foregroundColor(.gray)
-                                        .frame(maxWidth: .infinity)
-                                        .listRowBackground(Color.clear)
-                                }else{
-                                    
-                                    Text("No Forecast Weather Loaded ...")
-                                        .frame(maxWidth: .infinity)
-                                        .background(Color.clear)
-                                        .foregroundColor(.white)
-                                        .listRowBackground(Color.clear)
-                                }
+                                Text("No Forecast Weather Loaded ...")
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.clear)
+                                    .foregroundColor(.white)
+                                    .listRowBackground(Color.clear)
                             }else{
                                 //Show the items
                                 ForEach(viewModel.forecastEntries) {item in
@@ -240,6 +223,12 @@ struct WeatherView: View {
                         .environment(\.horizontalSizeClass, .regular)
                     }
                 }
+                .actionSheet(isPresented: $viewModel.showLocationServicesAlert) {
+                    locationServiceNotAvailableActionSheet
+                }
+            }
+            .actionSheet(isPresented: $viewModel.showPermissionsAlert) {
+                allowLocationPermissionActionSheet
             }
            
         }
@@ -249,16 +238,10 @@ struct WeatherView: View {
             //
             viewModel.requestLocationAccessAuthorisation()
             //
-            viewModel.loadCachedWeather()
+            //viewModel.loadCachedWeather()
         }
         .actionSheet(isPresented: $viewModel.showErrorAlert) {
             loadErrorActionSheet
-        }
-        .actionSheet(isPresented: $viewModel.showPermissionsAlert) {
-            allowLocationPermissionActionSheet
-        }
-        .actionSheet(isPresented: $viewModel.showLocationServicesAlert) {
-            locationServiceNotAvailableActionSheet
         }
     }
 

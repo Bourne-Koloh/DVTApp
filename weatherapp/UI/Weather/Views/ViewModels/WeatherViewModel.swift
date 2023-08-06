@@ -40,10 +40,14 @@ internal class WeatherViewModel : NSObject, ObservableObject{
     @Published var currentMaxTemp = "~"
     @Published var currentImage = "sea-cloudy"
     @Published var currentBackgroundColor = UIUtils.colorWeatherSeaClouds
+    
+    
     //Weather API service
-    @Environment(\.weatherService) var apiService: IWeatherWorker
+    var apiService: IWeatherWorker = WeatherWorkerImpl.getImpl()
     //Weather API service
-    @Environment(\.dataStoreService) var dataStore: IDataStore
+    var dataStore: IDataStore = DataStoreImpl.Shared
+    
+    
     //Cache for tasks
     private var disposables = Set<AnyCancellable>()
     
@@ -54,7 +58,9 @@ internal class WeatherViewModel : NSObject, ObservableObject{
     
     //MARK:- Initializer
     init(scheduler: DispatchQueue = DispatchQueue(label: "WeatherViewModel")) {
-        dispatchQueue = scheduler
+        //
+        self.dispatchQueue = scheduler
+        //
         super.init()
         //
         self.locationManager.delegate = self
@@ -95,10 +101,10 @@ internal class WeatherViewModel : NSObject, ObservableObject{
         //
         var index = 1
         for weather in forecast.entries.filter({ item in
-            return item.dt >= Date()
+            return Date(timeIntervalSince1970: TimeInterval(item.dt)) >= Date()
         }) {
             weather.id = UInt64(index)
-            if !filtered.contains(where: {self.dateFormatter.string(from: $0.dt) == self.dateFormatter.string(from: weather.dt) }) {
+            if !filtered.contains(where: {self.dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval($0.dt))) == self.dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(weather.dt))) }) {
                 filtered.append(weather)
             }
             index += 1 //Add unique IDs of UI rendering with Identifiable protocol
@@ -152,7 +158,7 @@ internal class WeatherViewModel : NSObject, ObservableObject{
               case .failure(let value):
                     self.errorMessage = value.localizedDescription
                     self.showErrorAlert = true
-                    self.forecastEntries = []
+                    //self.forecastEntries = []
                 case .finished:
                   break
               }
@@ -183,7 +189,6 @@ internal class WeatherViewModel : NSObject, ObservableObject{
               case .failure(let value):
                     self.errorMessage = value.localizedDescription
                     self.showErrorAlert = true
-                    self.forecastEntries = []
                 case .finished:
                   break
               }
@@ -207,9 +212,9 @@ internal class WeatherViewModel : NSObject, ObservableObject{
             processForecastData(forecast)
             //
             if let weather = forecast.entries.filter({ item in
-                return item.dt > Date()
+                return Date(timeIntervalSince1970: TimeInterval(item.dt)) > Date()
             }).filter({ item in
-                return dateFormatter.string(from: item.dt) == dateFormatter.string(from: Date())
+                return dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(item.dt))) == dateFormatter.string(from: Date())
             }).first{
                 //
                 processWeatherData(weather)

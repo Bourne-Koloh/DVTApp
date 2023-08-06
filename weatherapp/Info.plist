@@ -24,11 +24,11 @@
 		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
-	<key>weather-api-key</key>
-	<string>5c137103d4cc44f4ffe795af8d6f6d6e</string>
-	<key>prefer-swiftui</key>
-	<true/>
 	<key>is-devt</key>
 	<true/>
+	<key>prefer-swiftui</key>
+	<false/>
+	<key>weather-api-key</key>
+	<string>5c137103d4cc44f4ffe795af8d6f6d6e</string>
 </dict>
 </plist>

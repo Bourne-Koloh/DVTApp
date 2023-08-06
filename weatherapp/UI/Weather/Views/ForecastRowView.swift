@@ -27,7 +27,7 @@ struct ForecastRowView: View {
         GeometryReader { geometry in
             HStack{
                 
-                Text(dateFormatter.string(from: weather.dt))
+                Text(dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(weather.dt))))
                     .foregroundColor(Color.white)
                     .font(.system(size: 22))
                     .frame(minWidth: 0, maxWidth: geometry.size.width * 0.4, alignment: .leading)

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>weatherapp.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>97339DCCD5CA20289F4DEA89BA31895D4D0A9107</string>
+				<key>dateExpires</key>
+				<string>31/07/2024</string>
+				<key>type</key>
+				<string>Cloud Managed Apple Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>97339DCCD5CA20289F4DEA89BA31895D4D0A9107</string>
+						<key>dateExpires</key>
+						<string>31/07/2024</string>
+						<key>type</key>
+						<string>Cloud Managed Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>weathercore.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>NST4S2W6A6</string>
+						<key>name</key>
+						<string>PBZ Bank LTD</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>1.0</string>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>NST4S2W6A6.com.test.mobile.ios.weatherapp</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>NST4S2W6A6</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>weatherapp.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>82737a48-b706-46e0-bd17-b3d5455fc46f</string>
+				<key>dateExpires</key>
+				<string>31/07/2024</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: com.test.mobile.ios.weatherapp</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>NST4S2W6A6</string>
+				<key>name</key>
+				<string>PBZ Bank LTD</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -39,7 +39,7 @@ public class WeatherItem:NSObject,Codable,Identifiable{
     /**
      * Mark: Time of data calculation, unix, UTC
      */
-    public var dt = Date()
+    public var dt:UInt64 = 0
     /**
      * Mark: A number of timestamps returned in the API response
      */
@@ -109,7 +109,7 @@ public class WeatherItem:NSObject,Codable,Identifiable{
     required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         if let val = try? container.decodeIfPresent(UInt64.self, forKey: .dt) {
-            dt = Date(timeIntervalSince1970: TimeInterval(val))
+            dt = val
         }
         if let val = try? container.decodeIfPresent(UInt64.self, forKey: .id){
             id = val

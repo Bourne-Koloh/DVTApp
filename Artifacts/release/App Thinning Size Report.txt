@@ -1,0 +1,155 @@
+
+App Thinning Size Report for All Variants of weatherapp
+
+Variant: weatherapp-187DE2DA-07A9-40C6-A81D-258DE4DE01F6.ipa
+Supported variant descriptors: [device: iPhone10,1, os-version: 12.2], [device: iPhone10,4, os-version: 12.2], [device: iPhone9,3, os-version: 12.2], and [device: iPhone9,1, os-version: 12.2]
+App + On Demand Resources size: 636 KB compressed, 1.4 MB uncompressed
+App size: 636 KB compressed, 1.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-29F65B93-0154-4CFB-93C1-BA952980A6AA.ipa
+Supported variant descriptors: [device: iPhone12,1, os-version: 16.0], [device: iPhone12,1, os-version: 15.0], [device: iPhone11,8, os-version: 15.0], and [device: iPhone11,8, os-version: 16.0]
+App + On Demand Resources size: 561 KB compressed, 1 MB uncompressed
+App size: 561 KB compressed, 1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-411A7E81-010E-4A04-B145-1C20345EF48E.ipa
+Supported variant descriptors: [device: iPad8,2, os-version: 14.0], [device: iPad7,4, os-version: 13.0], [device: iPad8,2, os-version: 13.0], [device: iPad8,1, os-version: 13.0], [device: iPad8,6, os-version: 13.0], [device: iPad8,5, os-version: 14.0], [device: iPad8,7, os-version: 14.0], [device: iPad8,3, os-version: 13.0], [device: iPad7,2, os-version: 13.0], [device: iPad11,3, os-version: 13.0], [device: MacFamily20,1, os-version: 14.0], [device: iPad8,8, os-version: 13.0], [device: iPad7,4, os-version: 14.0], [device: iPad7,3, os-version: 13.0], [device: iPad11,2, os-version: 14.0], [device: iPad6,4, os-version: 14.0], [device: iPad11,3, os-version: 14.0], [device: iPad8,12, os-version: 14.0], [device: iPad13,2, os-version: 14.0], [device: iPad11,1, os-version: 14.0], [device: iPad8,9, os-version: 13.0], [device: iPad7,2, os-version: 14.0], [device: iPad8,6, os-version: 14.0], [device: iPad8,3, os-version: 14.0], [device: iPad13,7, os-version: 14.0], [device: iPad7,1, os-version: 14.0], [device: iPad8,9, os-version: 14.0], [device: iPad13,10, os-version: 14.0], [device: iPad11,4, os-version: 13.0], [device: iPad11,2, os-version: 13.0], [device: iPad13,6, os-version: 14.0], [device: iPad13,5, os-version: 14.0], [device: iPad8,10, os-version: 13.0], [device: iPad13,9, os-version: 14.0], [device: iPad8,1, os-version: 14.0], [device: iPad6,4, os-version: 13.0], [device: iPad7,1, os-version: 13.0], [device: iPad7,3, os-version: 14.0], [device: iPad11,1, os-version: 13.0], [device: iPad13,11, os-version: 14.0], [device: iPad8,4, os-version: 14.0], [device: iPad8,8, os-version: 14.0], [device: iPad8,12, os-version: 13.0], [device: iPad6,3, os-version: 14.0], [device: iPad13,4, os-version: 14.0], [device: iPad8,11, os-version: 13.0], [device: iPad13,1, os-version: 14.0], [device: iPad8,11, os-version: 14.0], [device: iPad11,4, os-version: 14.0], [device: iPad8,5, os-version: 13.0], [device: iPad8,10, os-version: 14.0], [device: iPad8,7, os-version: 13.0], [device: iPad8,4, os-version: 13.0], [device: iPad13,8, os-version: 14.0], and [device: iPad6,3, os-version: 13.0]
+App + On Demand Resources size: 671 KB compressed, 1.4 MB uncompressed
+App size: 671 KB compressed, 1.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-4D365588-EDD0-43A7-BDA6-339EEC84C66B.ipa
+Supported variant descriptors: [device: iPhone7,1, os-version: 12.2] and [device: iPhone8,2, os-version: 12.2]
+App + On Demand Resources size: 733 KB compressed, 1.5 MB uncompressed
+App size: 733 KB compressed, 1.5 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-58D9D455-3098-45A6-A1BE-479E83E260FD.ipa
+Supported variant descriptors: [device: iPhone8,2, os-version: 15.0]
+App + On Demand Resources size: 660 KB compressed, 1.1 MB uncompressed
+App size: 660 KB compressed, 1.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-61517A4F-52D6-4A0C-BA3E-9E13E92668F7.ipa
+Supported variant descriptors: [device: iPhone8,1, os-version: 15.0], [device: iPod9,1, os-version: 15.0], and [device: iPhone8,4, os-version: 15.0]
+App + On Demand Resources size: 538 KB compressed, 1 MB uncompressed
+App size: 538 KB compressed, 1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-6529BF96-7B0D-4D2A-9AA1-A778E9ED8B36.ipa
+Supported variant descriptors: [device: iPhone11,4, os-version: 13.0], [device: iPhone10,5, os-version: 13.0], [device: iPhone11,6, os-version: 13.0], [device: iPhone13,2, os-version: 14.0], [device: iPhone12,5, os-version: 14.0], [device: iPhone11,2, os-version: 13.0], [device: iPhone13,4, os-version: 14.0], [device: iPhone12,3, os-version: 14.0], [device: iPhone10,3, os-version: 14.0], [device: iPhone10,5, os-version: 14.0], [device: iPhone9,2, os-version: 14.0], [device: iPhone11,2, os-version: 14.0], [device: iPhone10,3, os-version: 13.0], [device: iPhone11,6, os-version: 14.0], [device: iPhone12,3, os-version: 13.0], [device: iPhone11,4, os-version: 14.0], [device: iPhone12,5, os-version: 13.0], [device: iPhone10,6, os-version: 14.0], [device: iPhone9,2, os-version: 13.0], [device: iPhone10,2, os-version: 13.0], [device: iPhone10,6, os-version: 13.0], [device: iPhone9,4, os-version: 14.0], [device: iPhone9,4, os-version: 13.0], [device: iPhone13,1, os-version: 14.0], [device: iPhone13,3, os-version: 14.0], and [device: iPhone10,2, os-version: 14.0]
+App + On Demand Resources size: 793 KB compressed, 1.6 MB uncompressed
+App size: 793 KB compressed, 1.6 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-723310C6-BAFF-403E-9097-EE122EBCB480.ipa
+Supported variant descriptors: [device: iPhone12,1, os-version: 13.0], [device: iPhone11,8, os-version: 14.0], [device: iPhone11,8, os-version: 13.0], and [device: iPhone12,1, os-version: 14.0]
+App + On Demand Resources size: 695 KB compressed, 1.4 MB uncompressed
+App size: 695 KB compressed, 1.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-83AB8807-24BE-4DDB-9032-2A6168B47F63.ipa
+Supported variant descriptors: [device: iPhone8,2, os-version: 14.0] and [device: iPhone8,2, os-version: 13.0]
+App + On Demand Resources size: 793 KB compressed, 1.6 MB uncompressed
+App size: 793 KB compressed, 1.6 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-92DDC495-4E38-4F5D-9680-91FD2F1AD9C1.ipa
+Supported variant descriptors: [device: iPad11,6, os-version: 15.0], [device: iPad6,11, os-version: 16.0], [device: iPad7,6, os-version: 16.0], [device: iPad6,11, os-version: 15.0], [device: iPad11,7, os-version: 16.0], [device: iPad7,12, os-version: 15.0], [device: iPad6,12, os-version: 15.0], [device: iPad6,12, os-version: 16.0], [device: iPad7,11, os-version: 16.0], [device: iPad7,12, os-version: 16.0], [device: iPad12,1, os-version: 16.0], [device: iPad11,7, os-version: 15.0], [device: iPad6,7, os-version: 15.0], [device: iPad7,11, os-version: 15.0], [device: iPad7,5, os-version: 15.0], [device: iPad12,2, os-version: 15.0], [device: iPad6,7, os-version: 16.0], [device: iPad13,18, os-version: 16.0], [device: iPad11,6, os-version: 16.0], [device: iPad6,8, os-version: 16.0], [device: iPad7,5, os-version: 16.0], [device: iPad5,3, os-version: 15.0], [device: iPad5,4, os-version: 15.0], [device: iPad7,6, os-version: 15.0], [device: iPad12,2, os-version: 16.0], [device: iPad5,2, os-version: 15.0], [device: iPad6,8, os-version: 15.0], [device: iPad12,1, os-version: 15.0], [device: iPad5,1, os-version: 15.0], and [device: iPad13,19, os-version: 16.0]
+App + On Demand Resources size: 538 KB compressed, 1 MB uncompressed
+App size: 538 KB compressed, 1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-94BDB559-97D1-4D45-B5C4-30B56DCC7CFB.ipa
+Supported variant descriptors: [device: iPad7,2, os-version: 16.0], [device: iPad7,3, os-version: 15.0], [device: iPad13,8, os-version: 15.0], [device: iPad13,11, os-version: 16.0], [device: iPad13,1, os-version: 16.0], [device: iPad7,1, os-version: 15.0], [device: iPad8,2, os-version: 16.0], [device: iPad13,17, os-version: 15.0], [device: iPad8,10, os-version: 16.0], [device: iPad14,4-B, os-version: 16.0], [device: iPad8,2, os-version: 15.0], [device: iPad8,4, os-version: 16.0], [device: iPad14,1, os-version: 15.0], [device: iPad13,4, os-version: 16.0], [device: iPad8,11, os-version: 15.0], [device: iPad8,7, os-version: 16.0], [device: iPad8,5, os-version: 15.0], [device: iPad11,3, os-version: 16.0], [device: iPad13,7, os-version: 15.0], [device: iPad8,9, os-version: 15.0], [device: iPad13,16, os-version: 15.0], [device: iPad7,4, os-version: 15.0], [device: iPad11,2, os-version: 15.0], [device: iPad14,1, os-version: 16.0], [device: iPad8,11, os-version: 16.0], [device: iPad13,10, os-version: 15.0], [device: iPad13,8, os-version: 16.0], [device: iPad8,12, os-version: 15.0], [device: iPad14,5-A, os-version: 16.0], [device: iPad11,4, os-version: 16.0], [device: MacFamily20,1, os-version: 15.0], [device: iPad13,9, os-version: 16.0], [device: iPad13,5, os-version: 15.0], [device: iPad7,2, os-version: 15.0], [device: iPad7,3, os-version: 16.0], [device: iPad8,1, os-version: 16.0], [device: iPad13,1, os-version: 15.0], [device: iPad13,11, os-version: 15.0], [device: iPad8,8, os-version: 15.0], [device: iPad13,5, os-version: 16.0], [device: iPad8,8, os-version: 16.0], [device: iPad13,10, os-version: 16.0], [device: iPad13,6, os-version: 16.0], [device: iPad11,4, os-version: 15.0], [device: iPad14,2, os-version: 15.0], [device: iPad13,7, os-version: 16.0], [device: iPad14,5-B, os-version: 16.0], [device: iPad14,2, os-version: 16.0], [device: iPad8,7, os-version: 15.0], [device: iPad7,4, os-version: 16.0], [device: iPad6,3, os-version: 15.0], [device: iPad14,6-B, os-version: 16.0], [device: iPad7,1, os-version: 16.0], [device: iPad8,5, os-version: 16.0], [device: iPad13,2, os-version: 15.0], [device: iPad8,3, os-version: 15.0], [device: iPad8,4, os-version: 15.0], [device: iPad13,9, os-version: 15.0], [device: iPad8,1, os-version: 15.0], [device: iPad8,3, os-version: 16.0], [device: iPad6,4, os-version: 15.0], [device: iPad14,3-B, os-version: 16.0], [device: iPad13,4, os-version: 15.0], [device: iPad13,2, os-version: 16.0], [device: iPad11,1, os-version: 16.0], [device: iPad8,12, os-version: 16.0], [device: iPad14,3-A, os-version: 16.0], [device: iPad13,17, os-version: 16.0], [device: iPad13,16, os-version: 16.0], [device: iPad6,3, os-version: 16.0], [device: iPad11,1, os-version: 15.0], [device: MacFamily20,1, os-version: 16.0], [device: iPad14,4-A, os-version: 16.0], [device: iPad11,2, os-version: 16.0], [device: iPad13,6, os-version: 15.0], [device: iPad6,4, os-version: 16.0], [device: iPad8,10, os-version: 15.0], [device: iPad11,3, os-version: 15.0], [device: iPad8,6, os-version: 16.0], [device: iPad8,9, os-version: 16.0], [device: iPad14,6-A, os-version: 16.0], and [device: iPad8,6, os-version: 15.0]
+App + On Demand Resources size: 538 KB compressed, 1 MB uncompressed
+App size: 538 KB compressed, 1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-998228CD-F2B1-4BD2-ADB6-299EB2A1710F.ipa
+Supported variant descriptors: [device: iPad6,3, os-version: 12.2], [device: iPad7,3, os-version: 12.2], [device: iPad8,3, os-version: 12.2], [device: iPad8,2, os-version: 12.2], [device: iPad7,1, os-version: 12.2], [device: iPad7,4, os-version: 12.2], [device: iPad8,5, os-version: 12.2], [device: iPad8,7, os-version: 12.2], [device: iPad11,3, os-version: 12.2], [device: iPad8,1, os-version: 12.2], [device: iPad8,8, os-version: 12.2], [device: iPad8,4, os-version: 12.2], [device: iPad11,1, os-version: 12.2], [device: iPad11,4, os-version: 12.2], [device: iPad7,2, os-version: 12.2], [device: iPad6,4, os-version: 12.2], [device: iPad11,2, os-version: 12.2], and [device: iPad8,6, os-version: 12.2]
+App + On Demand Resources size: 636 KB compressed, 1.4 MB uncompressed
+App size: 636 KB compressed, 1.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-A4AC0DDE-8011-428B-953E-67C3917E1927.ipa
+Supported variant descriptors: [device: iPad7,6, os-version: 13.0], [device: iPad7,5, os-version: 14.0], [device: iPad6,7, os-version: 13.0], [device: iPad6,8, os-version: 14.0], [device: iPad7,5, os-version: 13.0], [device: iPad5,4, os-version: 13.0], [device: iPad5,1, os-version: 13.0], [device: iPad7,12, os-version: 14.0], [device: iPad7,12, os-version: 13.0], [device: iPad6,11, os-version: 13.0], [device: iPad7,6, os-version: 14.0], [device: iPad7,11, os-version: 14.0], [device: iPad11,7, os-version: 14.0], [device: iPad6,11, os-version: 14.0], [device: iPad5,2, os-version: 13.0], [device: iPad5,3, os-version: 13.0], [device: iPad5,1, os-version: 14.0], [device: iPad6,12, os-version: 13.0], [device: iPad5,2, os-version: 14.0], [device: iPad5,4, os-version: 14.0], [device: iPad6,8, os-version: 13.0], [device: iPad6,7, os-version: 14.0], [device: iPad5,3, os-version: 14.0], [device: iPad11,6, os-version: 14.0], [device: iPad6,12, os-version: 14.0], and [device: iPad7,11, os-version: 13.0]
+App + On Demand Resources size: 671 KB compressed, 1.4 MB uncompressed
+App size: 671 KB compressed, 1.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-A962848C-6090-4625-9364-4642F3F58FBF.ipa
+Supported variant descriptors: [device: iPhone14,5, os-version: 15.0], [device: iPhone14,5, os-version: 16.0], [device: iPhone13,4, os-version: 15.0], [device: iPhone14,8, os-version: 16.0], [device: iPhone14,3, os-version: 15.0], [device: iPhone14,7, os-version: 16.0], [device: iPhone11,4, os-version: 16.0], [device: iPhone10,6, os-version: 15.0], [device: iPhone9,4, os-version: 15.0], [device: iPhone13,2, os-version: 15.0], [device: iPhone13,3, os-version: 16.0], [device: iPhone11,4, os-version: 15.0], [device: iPhone10,3, os-version: 16.0], [device: iPhone15,2, os-version: 16.0], [device: iPhone14,4, os-version: 15.0], [device: iPhone12,3, os-version: 15.0], [device: iPhone13,3, os-version: 15.0], [device: iPhone10,5, os-version: 15.0], [device: iPhone11,2, os-version: 16.0], [device: iPhone10,3, os-version: 15.0], [device: iPhone13,4, os-version: 16.0], [device: iPhone9,2, os-version: 15.0], [device: iPhone14,3, os-version: 16.0], [device: iPhone10,2, os-version: 16.0], [device: iPhone10,2, os-version: 15.0], [device: iPhone11,2, os-version: 15.0], [device: iPhone15,3, os-version: 16.0], [device: iPhone14,2, os-version: 16.0], [device: iPhone12,3, os-version: 16.0], [device: iPhone13,1, os-version: 16.0], [device: iPhone11,6, os-version: 16.0], [device: iPhone13,1, os-version: 15.0], [device: iPhone11,6, os-version: 15.0], [device: iPhone12,5, os-version: 15.0], [device: iPhone12,5, os-version: 16.0], [device: iPhone13,2, os-version: 16.0], [device: iPhone10,6, os-version: 16.0], [device: iPhone14,2, os-version: 15.0], [device: iPhone14,4, os-version: 16.0], and [device: iPhone10,5, os-version: 16.0]
+App + On Demand Resources size: 660 KB compressed, 1.1 MB uncompressed
+App size: 660 KB compressed, 1.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-B5318E22-85FD-45E1-9DE0-8579CFA28331.ipa
+Supported variant descriptors: [device: iPhone7,2, os-version: 12.2], [device: iPod9,1, os-version: 12.2], [device: iPhone8,1, os-version: 12.2], [device: iPod7,1, os-version: 12.2], [device: iPhone6,1, os-version: 12.2], [device: iPhone8,4, os-version: 12.2], and [device: iPhone6,2, os-version: 12.2]
+App + On Demand Resources size: 636 KB compressed, 1.4 MB uncompressed
+App size: 636 KB compressed, 1.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-BACEA17D-67A4-4D62-A02B-000CC32D1BCD.ipa
+Supported variant descriptors: [device: iPhone8,4, os-version: 13.0], [device: iPod9,1, os-version: 14.0], [device: iPod9,1, os-version: 13.0], [device: iPhone8,1, os-version: 14.0], [device: iPhone8,1, os-version: 13.0], and [device: iPhone8,4, os-version: 14.0]
+App + On Demand Resources size: 671 KB compressed, 1.4 MB uncompressed
+App size: 671 KB compressed, 1.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-BD94AD3C-76F6-4848-910E-18DE67EE96E2.ipa
+Supported variant descriptors: [device: iPhone11,8, os-version: 12.2]
+App + On Demand Resources size: 660 KB compressed, 1.4 MB uncompressed
+App size: 660 KB compressed, 1.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-C086C380-4EDC-4C25-95EB-78D11400A299.ipa
+Supported variant descriptors: [device: iPhone10,3, os-version: 12.2], [device: iPhone11,4, os-version: 12.2], [device: iPhone10,2, os-version: 12.2], [device: iPhone10,6, os-version: 12.2], [device: iPhone11,6, os-version: 12.2], [device: iPhone10,5, os-version: 12.2], [device: iPhone9,2, os-version: 12.2], [device: iPhone9,4, os-version: 12.2], and [device: iPhone11,2, os-version: 12.2]
+App + On Demand Resources size: 733 KB compressed, 1.5 MB uncompressed
+App size: 733 KB compressed, 1.5 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-ED4E06A9-2741-4D04-8FCC-ACB953C487E0.ipa
+Supported variant descriptors: [device: iPad4,2, os-version: 12.2], [device: iPad4,7, os-version: 12.2], [device: iPad5,3, os-version: 12.2], [device: iPad4,3, os-version: 12.2], [device: iPad4,6, os-version: 12.2], [device: iPad4,8, os-version: 12.2], [device: iPad6,11, os-version: 12.2], [device: iPad5,1, os-version: 12.2], [device: iPad4,4, os-version: 12.2], [device: iPad6,12, os-version: 12.2], [device: iPad5,2, os-version: 12.2], [device: iPad7,6, os-version: 12.2], [device: iPad4,9, os-version: 12.2], [device: iPad5,4, os-version: 12.2], [device: iPad6,8, os-version: 12.2], [device: iPad7,5, os-version: 12.2], [device: iPad4,5, os-version: 12.2], [device: iPad6,7, os-version: 12.2], and [device: iPad4,1, os-version: 12.2]
+App + On Demand Resources size: 636 KB compressed, 1.4 MB uncompressed
+App size: 636 KB compressed, 1.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-F62A9C23-F1CB-48B5-BCD3-C9A4E41319B8.ipa
+Supported variant descriptors: [device: iPhone14,6, os-version: 15.0], [device: iPhone10,1, os-version: 16.0], [device: iPhone10,4, os-version: 16.0], [device: iPhone14,6, os-version: 16.0], [device: iPhone12,8, os-version: 16.0], [device: iPhone10,1, os-version: 15.0], [device: iPhone10,4, os-version: 15.0], [device: iPhone9,1, os-version: 15.0], [device: iPhone9,3, os-version: 15.0], and [device: iPhone12,8, os-version: 15.0]
+App + On Demand Resources size: 538 KB compressed, 1 MB uncompressed
+App size: 538 KB compressed, 1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp-F9D1FA4F-9028-40C4-8391-717DD1DA54DE.ipa
+Supported variant descriptors: [device: iPhone9,3, os-version: 13.0], [device: iPhone10,1, os-version: 14.0], [device: iPhone10,4, os-version: 14.0], [device: iPhone9,1, os-version: 14.0], [device: iPhone9,3, os-version: 14.0], [device: iPhone12,8, os-version: 14.0], [device: iPhone10,1, os-version: 13.0], [device: iPhone10,4, os-version: 13.0], [device: iPhone12,8, os-version: 13.0], and [device: iPhone9,1, os-version: 13.0]
+App + On Demand Resources size: 671 KB compressed, 1.4 MB uncompressed
+App size: 671 KB compressed, 1.4 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: weatherapp.ipa
+Supported variant descriptors: Universal
+App + On Demand Resources size: 1.8 MB compressed, 2.8 MB uncompressed
+App size: 1.8 MB compressed, 2.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed

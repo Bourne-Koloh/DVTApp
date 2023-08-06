@@ -51,6 +51,10 @@
 		426E64B62A7F7E030046ED24 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E64B22A7F7E020046ED24 /* LoadingView.swift */; };
 		426E64B72A7F7E030046ED24 /* ForecastRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E64B32A7F7E030046ED24 /* ForecastRowView.swift */; };
 		426E64BA2A7F89210046ED24 /* EmptyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E64B92A7F89210046ED24 /* EmptyTableCell.swift */; };
+		42F4A6DC2A7FC655005849D4 /* dvt.png in Resources */ = {isa = PBXBuildFile; fileRef = 42F4A6DB2A7FC655005849D4 /* dvt.png */; };
+		42F4A6E42A7FC9CF005849D4 /* Icon-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 42F4A6E22A7FC9CF005849D4 /* Icon-57x57.png */; };
+		42F4A6E52A7FC9CF005849D4 /* Icon-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 42F4A6E32A7FC9CF005849D4 /* Icon-512x512.png */; };
+		42F4A6E72A7FCB55005849D4 /* release in Resources */ = {isa = PBXBuildFile; fileRef = 42F4A6E62A7FCB55005849D4 /* release */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +157,10 @@
 		426E64B22A7F7E020046ED24 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		426E64B32A7F7E030046ED24 /* ForecastRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastRowView.swift; sourceTree = "<group>"; };
 		426E64B92A7F89210046ED24 /* EmptyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableCell.swift; sourceTree = "<group>"; };
+		42F4A6DB2A7FC655005849D4 /* dvt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dvt.png; sourceTree = "<group>"; };
+		42F4A6E22A7FC9CF005849D4 /* Icon-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57x57.png"; sourceTree = "<group>"; };
+		42F4A6E32A7FC9CF005849D4 /* Icon-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-512x512.png"; sourceTree = "<group>"; };
+		42F4A6E62A7FCB55005849D4 /* release */ = {isa = PBXFileReference; lastKnownFileType = folder; path = release; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +212,7 @@
 				426E643B2A7F7A1F0046ED24 /* weatherappUITests */,
 				426E64512A7F7ACB0046ED24 /* weathercore */,
 				426E645F2A7F7ACC0046ED24 /* weathercoreTests */,
+				42F4A6DD2A7FC8DB005849D4 /* Artifacts */,
 				426E64162A7F7A1B0046ED24 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -349,6 +358,7 @@
 		426E64972A7F7D340046ED24 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				42F4A6DB2A7FC655005849D4 /* dvt.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -415,6 +425,16 @@
 				426E64B02A7F7E020046ED24 /* WeatherViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		42F4A6DD2A7FC8DB005849D4 /* Artifacts */ = {
+			isa = PBXGroup;
+			children = (
+				42F4A6E62A7FCB55005849D4 /* release */,
+				42F4A6E22A7FC9CF005849D4 /* Icon-57x57.png */,
+				42F4A6E32A7FC9CF005849D4 /* Icon-512x512.png */,
+			);
+			path = Artifacts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -580,8 +600,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F4A6E72A7FCB55005849D4 /* release in Resources */,
+				42F4A6E42A7FC9CF005849D4 /* Icon-57x57.png in Resources */,
+				42F4A6DC2A7FC655005849D4 /* dvt.png in Resources */,
 				426E64282A7F7A1F0046ED24 /* LaunchScreen.storyboard in Resources */,
 				426E64AF2A7F7DF10046ED24 /* Weather.storyboard in Resources */,
+				42F4A6E52A7FC9CF005849D4 /* Icon-512x512.png in Resources */,
 				426E64A22A7F7D840046ED24 /* LoaderView.xib in Resources */,
 				426E64952A7F7CED0046ED24 /* Preview Assets.xcassets in Resources */,
 				426E64252A7F7A1F0046ED24 /* Assets.xcassets in Resources */,
@@ -869,27 +893,30 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4JQZA7Q9CA;
+				DEVELOPMENT_TEAM = NST4S2W6A6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weatherapp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Weather App";
+				INFOPLIST_KEY_CFBundleDisplayName = "DVT Weather";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "$(PRODUCT_NAME) loads weather information based on your current locations. Please Allow..";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "$(PRODUCT_NAME) loads weather information based on your current locations. Please Allow..";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(PRODUCT_NAME) loads weather information based on your current locations. Please Allow..";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "weatherapp loads weather information based on your current locations. Please Allow..";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "weatherapp loads weather information based on your current locations. Please Allow..";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "weatherapp loads weather information based on your current locations. Please Allow..";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dvt.mobile.ios.weatherapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.mobile.ios.weatherapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -904,27 +931,30 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4JQZA7Q9CA;
+				DEVELOPMENT_TEAM = NST4S2W6A6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weatherapp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Weather App";
+				INFOPLIST_KEY_CFBundleDisplayName = "DVT Weather";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "$(PRODUCT_NAME) loads weather information based on your current locations. Please Allow..";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "$(PRODUCT_NAME) loads weather information based on your current locations. Please Allow..";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(PRODUCT_NAME) loads weather information based on your current locations. Please Allow..";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "weatherapp loads weather information based on your current locations. Please Allow..";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "weatherapp loads weather information based on your current locations. Please Allow..";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "weatherapp loads weather information based on your current locations. Please Allow..";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dvt.mobile.ios.weatherapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.mobile.ios.weatherapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

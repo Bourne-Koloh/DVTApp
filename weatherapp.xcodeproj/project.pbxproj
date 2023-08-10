@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423D71D12A85154A003722D0 /* App-60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 423D71D02A85154A003722D0 /* App-60x60@3x.png */; };
+		423D71D32A851552003722D0 /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 423D71D22A851552003722D0 /* ItunesArtwork@2x.png */; };
 		426E64192A7F7A1B0046ED24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E64182A7F7A1B0046ED24 /* AppDelegate.swift */; };
 		426E641B2A7F7A1B0046ED24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E641A2A7F7A1B0046ED24 /* SceneDelegate.swift */; };
 		426E64232A7F7A1B0046ED24 /* weatherapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 426E64212A7F7A1B0046ED24 /* weatherapp.xcdatamodeld */; };
@@ -110,6 +112,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		423D71D02A85154A003722D0 /* App-60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-60x60@3x.png"; sourceTree = "<group>"; };
+		423D71D22A851552003722D0 /* ItunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ItunesArtwork@2x.png"; sourceTree = "<group>"; };
 		426E64152A7F7A1B0046ED24 /* weatherapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		426E64182A7F7A1B0046ED24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		426E641A2A7F7A1B0046ED24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -433,6 +437,8 @@
 				42F4A6E62A7FCB55005849D4 /* release */,
 				42F4A6E22A7FC9CF005849D4 /* Icon-57x57.png */,
 				42F4A6E32A7FC9CF005849D4 /* Icon-512x512.png */,
+				423D71D02A85154A003722D0 /* App-60x60@3x.png */,
+				423D71D22A851552003722D0 /* ItunesArtwork@2x.png */,
 			);
 			path = Artifacts;
 			sourceTree = "<group>";
@@ -600,8 +606,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423D71D32A851552003722D0 /* ItunesArtwork@2x.png in Resources */,
 				42F4A6E72A7FCB55005849D4 /* release in Resources */,
 				42F4A6E42A7FC9CF005849D4 /* Icon-57x57.png in Resources */,
+				423D71D12A85154A003722D0 /* App-60x60@3x.png in Resources */,
 				42F4A6DC2A7FC655005849D4 /* dvt.png in Resources */,
 				426E64282A7F7A1F0046ED24 /* LaunchScreen.storyboard in Resources */,
 				426E64AF2A7F7DF10046ED24 /* Weather.storyboard in Resources */,

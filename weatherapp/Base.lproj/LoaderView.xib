@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MuseoSans-500.otf">
+            <string>MuseoSans-500</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" userLabel="Loader View" customClass="LoaderView" customModule="weatherapp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cK-z7-xsr">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TZe-pg-A71">
+                            <rect key="frame" x="10" y="408" width="394" height="80.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Wait ..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3G2-Hm-5cu">
+                                    <rect key="frame" x="133.5" y="0.0" width="127" height="23.5"/>
+                                    <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FG3-jY-vj6">
+                                    <rect key="frame" x="178.5" y="43.5" width="37" height="37"/>
+                                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </activityIndicatorView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="TZe-pg-A71" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6cK-z7-xsr" secondAttribute="top" constant="20" id="2DX-Bi-Ca5"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TZe-pg-A71" secondAttribute="bottom" constant="20" id="Ri4-m1-ilH"/>
+                        <constraint firstAttribute="trailing" secondItem="TZe-pg-A71" secondAttribute="trailing" constant="10" id="YPX-ak-z4Z"/>
+                        <constraint firstItem="TZe-pg-A71" firstAttribute="leading" secondItem="6cK-z7-xsr" secondAttribute="leading" constant="10" id="p0q-4l-s6i"/>
+                        <constraint firstItem="TZe-pg-A71" firstAttribute="centerY" secondItem="6cK-z7-xsr" secondAttribute="centerY" id="vXc-65-uWn"/>
+                        <constraint firstItem="TZe-pg-A71" firstAttribute="centerX" secondItem="6cK-z7-xsr" secondAttribute="centerX" id="wTb-gF-Zeg"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="AccentColor"/>
+            <constraints>
+                <constraint firstItem="6cK-z7-xsr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="L51-KG-ocd"/>
+                <constraint firstItem="6cK-z7-xsr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="T3G-vf-IIL"/>
+                <constraint firstAttribute="trailing" secondItem="6cK-z7-xsr" secondAttribute="trailing" id="f4f-7Z-ehV"/>
+                <constraint firstAttribute="bottom" secondItem="6cK-z7-xsr" secondAttribute="bottom" id="fA0-C3-Lnm"/>
+            </constraints>
+            <connections>
+                <outlet property="activity" destination="FG3-jY-vj6" id="Jiu-ye-d0d"/>
+                <outlet property="titleLabelView" destination="3G2-Hm-5cu" id="4qJ-BM-gEa"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="100"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.75300002098083496" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
